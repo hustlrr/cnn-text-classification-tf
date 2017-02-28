@@ -1,7 +1,7 @@
+# coding=utf-8
+
 import numpy as np
 import re
-import itertools
-from collections import Counter
 
 
 def clean_str(string):
@@ -63,3 +63,4 @@ def batch_iter(data, batch_size, num_epochs, shuffle=True):
             start_index = batch_num * batch_size
             end_index = min((batch_num + 1) * batch_size, data_size)
             yield shuffled_data[start_index:end_index]
+
