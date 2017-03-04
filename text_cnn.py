@@ -22,13 +22,17 @@ class TextCNN(object):
         l2_loss = tf.constant(0.0)
 
         # Embedding layer
-        with tf.device('/gpu:0'), tf.name_scope("embedding"):
+        with tf.device('/gpu:0'), tf.variable_scope("embedding"):
             # W = tf.Variable(
             #     tf.random_uniform([vocab_size, embedding_size], -1.0, 1.0),
             #     name="W")
-            W = tf.Variable(tf.constant(0.0, shape=[vocab_size, embedding_size]),
-                            trainable=True, name="W")
+
+            # W = tf.Variable(tf.constant(0.0, shape=[vocab_size, embedding_size]),
+            #                 trainable=True, name="W")
+
+            W = tf.get_variable(name="W", shape=[vocab_size, embedding_size], dtype=tf.float32)
             W.assign(self.word2vec_embedded)
+
             self.embedded_chars = tf.nn.embedding_lookup(W, self.input_x)
             self.embedded_chars_expanded = tf.expand_dims(self.embedded_chars, -1)
 

@@ -18,8 +18,8 @@ tf.flags.DEFINE_string("positive_data_file", "./data/rt-polaritydata/rt-polarity
 tf.flags.DEFINE_string("negative_data_file", "./data/rt-polaritydata/rt-polarity.neg.test", "Data source for the positive data.")
 
 # Eval Parameters
-tf.flags.DEFINE_integer("batch_size", 50, "Batch Size (default: 64)")
-tf.flags.DEFINE_string("checkpoint_dir", "./runs/1488252516/checkpoints/", "Checkpoint directory from training run")
+tf.flags.DEFINE_integer("batch_size", 150, "Batch Size (default: 64)")
+tf.flags.DEFINE_string("checkpoint_dir", "runs/1488517518/checkpoints/", "Checkpoint directory from training run")
 tf.flags.DEFINE_boolean("eval_train", True, "Evaluate on all training data")
 
 # Misc Parameters
